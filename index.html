@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClipTurbo VPN - Built for CapCut Creators</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="container">
+            <div class="logo">
+                <div class="rocket">🚀</div>
+                <h1>ClipTurbo VPN</h1>
+                <p>Edit Without Limits</p>
+            </div>
+            
+            <form id="loginForm" class="auth-form">
+                <input type="email" id="emailInput" placeholder="Email" required>
+                <input type="password" id="passwordInput" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" id="signupLink" class="signup-toggle">Create Free Account</a>
+            </form>
+            
+            <div id="signupForm" class="auth-form hidden">
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <button type="submit">Sign Up Free</button>
+                <a href="#" id="loginLink" class="signup-toggle">Back to Login</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="mainScreen" class="screen">
+        <div class="top-bar">
+            <div class="user-info">
+                <span id="userEmail"></span>
+                <button id="logoutBtn">Logout</button>
+            </div>
+            <div class="plan-badge" id="planBadge">FREE</div>
+        </div>
+
+        <div class="container">
+            <!-- Connection Status -->
+            <div class="connection-card">
+                <div class="status-indicator" id="statusIndicator">
+                    <div class="circle disconnected"></div>
+                    <span>Disconnected</span>
+                </div>
+                <button id="connectBtn" class="connect-btn large">Connect to CapCut</button>
+                
+                <div class="speed-monitor hidden" id="speedMonitor">
+                    <div class="speed-item">
+                        <span>Ping</span>
+                        <div id="pingValue" class="speed-value">-- ms</div>
+                    </div>
+                    <div class="speed-item">
+                        <span>Download</span>
+                        <div id="downloadValue" class="speed-value">-- Mbps</div>
+                    </div>
+                    <div class="speed-item">
+                        <span>Upload</span>
+                        <div id="uploadValue" class="speed-value">-- Mbps</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Features -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Smart CapCut Mode</h3>
+                    <p>Auto-connects when CapCut opens</p>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="capcutMode">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Turbo Protocol</h3>
+                    <p>WireGuard optimized for CapCut</p>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="turboMode" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Creator Regions</h3>
+                    <div class="region-selector" id="regionSelector">
+                        <button class="region-btn active" data-region="SG">Singapore</button>
+                        <button class="region-btn" data-region="JP">Japan</button>
+                        <button class="region-btn" data-region="DE">Germany</button>
+                        <button class="region-btn" data-region="US">USA West</button>
+                    </div>
+                </div>
+
+                <div class="feature-card full-width">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Creator Boost</h3>
+                    <p>AI prioritizes templates & effects</p>
+                    <div class="boost-bars">
+                        <div class="boost-bar">
+                            <span>Templates</span>
+                            <div class="bar"><div class="fill" id="templateBoost"></div></div>
+                        </div>
+                        <div class="boost-bar">
+                            <span>Effects</span>
+                            <div class="bar"><div class="fill" id="effectBoost"></div></div>
+                        </div>
+                        <div class="boost-bar">
+                            <span>Upload</span>
+                            <div class="bar"><div class="fill" id="uploadBoost"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Upgrade -->
+            <div class="premium-card" id="premiumCard">
+                <h3>Go Premium - No Limits!</h3>
+                <ul>
+                    <li>✅ Zero Ads Experience</li>
+                    <li>✅ Unlimited Bandwidth</li>
+                    <li>✅ Priority Servers</li>
+                    <li>✅ 24/7 Support</li>
+                </ul>
+                <button class="premium-btn" id="upgradeBtn">Upgrade Now - ₹99/month</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connection Modal -->
+    <div id="connectModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Testing Best Server...</h3>
+            <div class="server-test">
+                <div class="server-item" data-region="SG">
+                    <span>Singapore</span>
+                    <div class="ping">-- ms</div>
+                </div>
+                <div class="server-item" data-region="JP">
+                    <span>Japan</span>
+                    <div class="ping">-- ms</div>
+                </div>
+                <div class="server-item" data-region="DE">
+                    <span>Germany</span>
+                    <div class="ping">-- ms</div>
+                </div>
+                <div class="server-item" data-region="US">
+                    <span>USA West</span>
+                    <div class="ping">-- ms</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="connectProgress"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
